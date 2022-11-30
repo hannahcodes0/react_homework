@@ -21,7 +21,7 @@ function User(props) {
             props.handleEdit(props.user.id);
           }}
         >
-          완료
+          {props.user.isDone ? "취소" : "완료"}
         </CustomButton>
       </div>
     </div>

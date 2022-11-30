@@ -25,6 +25,8 @@ const App = () => {
     };
 
     setUsers([...users, newUser]);
+    setName("");
+    setAge("");
   };
 
   const deleteUserHandler = (id) => {
@@ -41,65 +43,51 @@ const App = () => {
   };
 
   return (
-    <div>
-      <div className="container">
-        <span>My Todo List</span>
-        <span>React</span>
-      </div>
+    <div className="layout">
+      <div>
+        <div className="container">
+          <span>My Todo List</span>
+          <span>React</span>
+        </div>
 
-      <div className="add-form">
-        <div className="add-form2">
-          <span style={{ fontWeight: 700 }}>제목</span>
-          <input
-            style={{
-              borderRadius: 12,
-              height: 40,
-              width: 240,
-            }}
-            value={name}
-            placeholder=""
-            // 인풋 이벤트로 들어온 입력 값을 name의 값으로 업데이트
-            onChange={(e) => setName(e.target.value)}
-          />
-          <span style={{ fontWeight: 700 }}>내용</span>
-          <input
-            style={{ borderRadius: 12, height: 40, width: 240 }}
-            value={age}
-            placeholder=""
-            // 인풋 이벤트로 들어온 입력 값을 age의 값으로 업데이트
-            onChange={(e) => setAge(e.target.value)}
-          />
+        <div className="add-form">
+          <div className="add-form2">
+            <div>
+              <span style={{ fontWeight: 700, padding: 10 }}> 제목 </span>
+              <input
+                style={{
+                  borderRadius: 12,
+                  height: 40,
+                  width: 240,
+                }}
+                value={name}
+                placeholder=""
+                onChange={(e) => setName(e.target.value)}
+              />
+              <span style={{ fontWeight: 700, padding: 10 }}> 내용 </span>
+              <input
+                style={{ borderRadius: 12, height: 40, width: 240 }}
+                value={age}
+                placeholder=""
+                onChange={(e) => setAge(e.target.value)}
+              />
+            </div>
 
-          <div className="add-button">
-            <CustomButton color="teal" onClick={addUserHandler}>
-              추가하기
-            </CustomButton>{" "}
+            <div className="add-button">
+              <CustomButton color="teal" onClick={addUserHandler}>
+                추가하기
+              </CustomButton>{" "}
+            </div>
           </div>
         </div>
-      </div>
 
-      <div>
-        <h2 style={{ paddingLeft: 24 }}>Working.. 🔥</h2>
-      </div>
+        <div>
+          <h2 style={{ paddingLeft: 24 }}>Working.. 🔥</h2>
+        </div>
 
-      <div className="app-style">
-        {users.map((user) =>
-          user.isDone === false ? (
-            <User
-              handleDelete={deleteUserHandler}
-              handleEdit={editUserHandler}
-              user={user}
-              key={user.id}
-            ></User>
-          ) : null
-        )}
-      </div>
-
-      <div>
-        <h2 style={{ paddingLeft: 24 }}>Done..! 🎉</h2>
         <div className="app-style">
           {users.map((user) =>
-            user.isDone === true ? (
+            user.isDone === false ? (
               <User
                 handleDelete={deleteUserHandler}
                 handleEdit={editUserHandler}
@@ -108,6 +96,22 @@ const App = () => {
               ></User>
             ) : null
           )}
+        </div>
+
+        <div>
+          <h2 style={{ paddingLeft: 24 }}>Done..! 🎉</h2>
+          <div className="app-style">
+            {users.map((user) =>
+              user.isDone === true ? (
+                <User
+                  handleDelete={deleteUserHandler}
+                  handleEdit={editUserHandler}
+                  user={user}
+                  key={user.id}
+                ></User>
+              ) : null
+            )}
+          </div>
         </div>
       </div>
     </div>
