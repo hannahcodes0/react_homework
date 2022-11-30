@@ -1,0 +1,57 @@
+.app-style {
+  padding: 0px 0px 0px 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.square-style {
+  border: 4px solid teal;
+  border-radius: 12px;
+  padding: 12px 24px 24px;
+  width: 270px;
+  height: 160px;
+}
+
+.container {
+  border: 1px solid #ddd;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.add-form {
+  background-color: #eee;
+  border-radius: 12px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.add-form2 {
+  border-color: white;
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.add-button {
+  background-color: teal;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 700;
+  height: 40px;
+  width: 140px;
+  text-align: center;
+  align-items: flex-start;
+}
+
+.add-input {
+  border: none;
+  border-radius: 12px;
+  height: 40px;
+  padding: 0 12px;
+  width: 240px;
+}
